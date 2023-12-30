@@ -1,0 +1,20 @@
+div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1, h2 {
+    display: flex;
+    justify-content: center;
+}
+
+p {
+    font-size: 1.2em;
+}
+
+li {
+    padding: .5em;
+    font-size: 1.05em;
+}

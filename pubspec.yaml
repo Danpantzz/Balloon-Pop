@@ -1,0 +1,42 @@
+name: daniel_mcerlean_project_3
+description: A new Flutter project.
+publish_to: 'none'
+version: 1.0.1+2
+
+environment:
+  sdk: '>=3.1.0 <4.0.0'
+
+dependencies:
+  audioplayers: ^5.2.1
+  flame: ^1.11.0
+  flame_audio: ^2.1.5
+  flutter:
+    sdk: flutter
+  flutter_native_splash: ^2.3.7
+  gap: ^3.0.1
+  google_fonts: ^6.1.0
+  shared_preferences: ^2.2.2
+  webview_flutter: ^4.4.2
+  
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+  flutter_launcher_icons: ^0.13.1
+  change_app_package_name: ^1.1.0
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/images/logo_icon.png"
+  min_sdk_android: 21 # android min sdk min:16, default 21
+  adaptive_icon_background: "#FF0000" 
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/
+    - assets/audio/
+    - assets/html/

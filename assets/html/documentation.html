@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Documentation</title>
+        <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
+</head>
+
+<body>
+        <!-- #region About-->
+        <div>
+                <h1>About</h1>
+                <h3>Created by: Daniel McErlean</h3>
+                <p>
+                        Balloon Pop is an arcade-like game built using the Flutter Flame engine. Try to beat your
+                        highscore
+                        each time you play, as the game gets more difficult the longer you last! Created for a final
+                        project at RIT.
+                </p>
+                <h4><a href="proposal.html">Original Proposal</a></h4>
+        </div>
+        <!-- #endregion -->
+
+        <hr>
+
+        <!-- #region Requirements -->
+        <div>
+                <h1>Requirements</h1>
+                <ul>
+                        <li>Functional<ol>
+                                        <li>Game is useful (provides entertainment) and is easy to use</li>
+                                        <li>Goes beyond other exercises by utilizing many aspects of Flame that we did
+                                                not cover in class</li>
+                                        <li>No input validation, though it is not applicable with this application</li>
+                                        <li>Created custom splash screen, icon, and a unique app name</li>
+                                        <li>Made use of shared_preferences to save and load volume preferences</li>
+                                        <li>Multiple pages are present</li>
+                                        <li>The app does not crash</li>
+                                        <li>Documentation page ( right here :) )</li>
+                                </ol>
+                        </li>
+
+                        <li>Design & Interaction<ol>
+                                        <li>Graphics are pleasing and fit the aesthetic</li>
+                                        <li>All widgets are labeled exactly for what they do</li>
+                                        <li>Users should be able to figure out what to do, and instruction is provided
+                                                anyway</li>
+                                        <li>App is responsive for portrait devices</li>
+                                </ol>
+                        </li>
+
+                        <li>Media<ol>
+                                        <li>Images are optimized and not overly large</li>
+                                        <li>Sounds effects and background music are present</li>
+                                        <li>A custom font is utilized</li>
+                                </ol>
+                        </li>
+
+                        <li>Code Conventions<ol>
+                                        <li>Multiple custom dart classes are used</li>
+                                        <li>Code is type aware, var is never used</li>
+                                        <li>Repetive code is broken up into reusable functions/methods</li>
+                                        <li>Variables and functions are named for what they do</li>
+                                        <li>Comments describe exactly what each function does</li>
+                                        <li>No print statements</li>
+                                </ol>
+                        </li>
+                </ul>
+        </div>
+        <!-- #endregion -->
+
+        <hr>
+
+        <!-- #region Process -->
+        <div>
+                <h1>Process</h1>
+                <ol>
+                        <li>Came up with an idea for a simple arcade game that involved popping balloons</li>
+                        <li>Researched Flame and different ways of laying out the app navigation</li>
+                        <li>Settled on overlays, and found different a Flame tutorial that explained in depth on how to
+                                make a flame game</li>
+                        <li>Set up the main game class, where everything is initialized and the game loop is started
+                        </li>
+                        <li>Wrote a class that can take in multiple types of balloons to make creating different
+                                versions easier and less redundant</li>
+                        <li>Created the game loop, where the balloons rise up, pop if they leave the screen, causing the
+                                player to lose a life. Popping a balloon before it leaves increases the players score.
+                        </li>
+                        <li>Created the overlays and set them up with different states such as the pause state when
+                                pressing the pause button.</li>
+                        <li>Finally, I added music and sound effects, and volume controls.</li>
+                </ol>
+
+                <h2>Set Backs / Glitches</h2>
+                <ul>
+                        <li>After a while of playing, the sound effects may become delayed.</li>
+                        <li>Music is restarted when changing the volume due to FlameAudio not allowing variables to
+                                initialize music. (could be fixed by creating the audio on the main page with
+                                AudioPlayers, but it was too late to change it)</li>
+                        <li>Back button doesn't work on certain overlays due to the WillPopScope not being called</li>
+                </ul>
+        </div>
+        <!-- #endregion -->
+
+        <hr>
+
+        <!-- #region Sources-->
+        <div>
+                <h1>Sources & References</h1>
+                <ul>
+                        <li><a href="https://freesound.org/people/Lemoncreme/sounds/203099/">Background music</a>
+                        </li>
+                        <li><a href="https://freesound.org/people/onikage22/sounds/240566/">Balloon pop sounds</a>
+                        </li>
+                        <li><a href="https://freesound.org/people/deleted_user_2104797/sounds/144953/">Wobble sound
+                                        (when tapping a balloon with mutliple taps)</a>
+                        </li>
+                        <li><a href="https://docs.flame-engine.org/latest/">Flame Documentation</a>
+                        </li>
+                        <li><a href="https://github.com/flutter/codelabs/blob/main/flame-building-doodle-dash/finished_game/lib/game/doodle_dash.dart">Flutter
+                                        doodledash tutorial</a>
+                        </li>
+                        <li><a href="https://stackoverflow.com/questions/55610742/proper-way-to-get-widget-height-in-safearea">Getting
+                                        height of safeArea</a>
+                        </li>
+                        <li><a href="https://stackoverflow.com/questions/69446673/how-to-position-an-icon-button-at-the-top-right-corner-of-a-container-in-flutter">Position
+                                        icon in top-right corner</a>
+                        </li>
+                        <li><a href="https://stackoverflow.com/questions/52146269/how-to-decorate-text-stroke-in-flutter">Styling
+                                        text with shadows</a>
+                        </li>
+                </ul>
+
+                <h2>Flutter Packages</h2>
+                <ul>
+                        <li><a href="https://pub.dev/packages/audioplayers">audioplayers</a></li>
+                        <li><a href="https://pub.dev/packages/flame">flame</a></li>
+                        <li><a href="https://pub.dev/packages/flame_audio">flame_audio</a></li>
+                        <li><a href="https://pub.dev/packages/flutter_native_splash">flutter_native_splash</a></li>
+                        <li><a href="https://pub.dev/packages/gap">gap</a></li>
+                        <li><a href="https://pub.dev/packages/google_fonts">google_fonts</a></li>
+                        <li><a href="https://pub.dev/packages/shared_preferences">shared_preferences</a></li>
+                        <li><a href="https://pub.dev/packages/webview_flutter">webview_flutter</a></li>
+                        <li><a href="https://pub.dev/packages/flutter_launcher_icons">flutter_launcher_icons</a></li>
+                </ul>
+        </div>
+        <!-- #endregion -->
+
+
+</body>
+
+</html>
