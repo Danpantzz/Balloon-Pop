@@ -63,7 +63,7 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
 
     switch (state) {
       case AppLifecycleState.resumed:
-        game.resumeEngine();
+        if (!game.paused) game.resumeEngine();
         break;
       case AppLifecycleState.hidden:
       case AppLifecycleState.inactive:

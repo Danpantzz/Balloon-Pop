@@ -53,128 +53,133 @@ class _InstructionsOverlayState extends State<InstructionsOverlay> {
                 Expanded(
                   child: Padding(
                     padding: const EdgeInsets.only(bottom: 8.0),
-                    child: SingleChildScrollView(
-                      child: Container(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Column(
-                          children: [
-                            // Gameplay Instructions
-                            Container(
-                              padding: const EdgeInsets.all(8),
-                              margin: const EdgeInsets.only(bottom: 10),
-                              decoration: BoxDecoration(
-                                border: Border.all(color: Colors.black),
-                                borderRadius: BorderRadius.circular(10),
-                                color: const Color.fromARGB(255, 255, 243, 131),
+                    child: Scrollbar(
+                      interactive: true,
+                      thumbVisibility: true,
+                      trackVisibility: true,
+                      child: SingleChildScrollView(
+                        child: Container(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Column(
+                            children: [
+                              // Gameplay Instructions
+                              Container(
+                                padding: const EdgeInsets.all(8),
+                                margin: const EdgeInsets.only(bottom: 10),
+                                decoration: BoxDecoration(
+                                  border: Border.all(color: Colors.black),
+                                  borderRadius: BorderRadius.circular(10),
+                                  color: const Color.fromARGB(255, 255, 243, 131),
+                                ),
+                                child: Text(
+                                  "Don't let the balloons reach the top!",
+                                  softWrap: true,
+                                  textAlign: TextAlign.center,
+                                  style: Theme.of(context).textTheme.displayLarge,
+                                ),
                               ),
-                              child: Text(
-                                "Don't let the balloons reach the top!",
-                                softWrap: true,
-                                textAlign: TextAlign.center,
-                                style: Theme.of(context).textTheme.displayLarge,
+                              // Green Balloon Instructions
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                children: [
+                                  Image.asset(
+                                    'assets/images/balloon_green.png',
+                                    height: balloonHeight,
+                                  ),
+                                  SizedBox(
+                                    width: game.size.x / 2,
+                                    child: Text(
+                                      '1 point\neasiest to pop',
+                                      softWrap: true,
+                                      textAlign: TextAlign.center,
+                                      style:
+                                          Theme.of(context).textTheme.titleSmall,
+                                    ),
+                                  ),
+                                ],
                               ),
-                            ),
-                            // Green Balloon Instructions
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                Image.asset(
-                                  'assets/images/balloon_green.png',
-                                  height: balloonHeight,
-                                ),
-                                SizedBox(
-                                  width: game.size.x / 2,
-                                  child: Text(
-                                    '1 point\neasiest to pop',
-                                    softWrap: true,
-                                    textAlign: TextAlign.center,
-                                    style:
-                                        Theme.of(context).textTheme.titleSmall,
+                              // Yellow Balloon Instructions
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                children: [
+                                  SizedBox(
+                                    width: game.size.x / 2,
+                                    child: Text(
+                                      '3 points\n2 taps to pop',
+                                      softWrap: true,
+                                      textAlign: TextAlign.center,
+                                      style:
+                                          Theme.of(context).textTheme.titleSmall,
+                                    ),
                                   ),
-                                ),
-                              ],
-                            ),
-                            // Yellow Balloon Instructions
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                SizedBox(
-                                  width: game.size.x / 2,
-                                  child: Text(
-                                    '3 points\n2 taps to pop',
-                                    softWrap: true,
-                                    textAlign: TextAlign.center,
-                                    style:
-                                        Theme.of(context).textTheme.titleSmall,
+                                  Image.asset(
+                                    'assets/images/balloon_yellow.png',
+                                    height: balloonHeight,
                                   ),
-                                ),
-                                Image.asset(
-                                  'assets/images/balloon_yellow.png',
-                                  height: balloonHeight,
-                                ),
-                              ],
-                            ),
-                            // Red Balloon Instructions
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                Image.asset(
-                                  'assets/images/balloon_red.png',
-                                  height: balloonHeight,
-                                ),
-                                SizedBox(
-                                  width: game.size.x / 2,
-                                  child: Text(
-                                    '5 points\nvery fast',
-                                    softWrap: true,
-                                    textAlign: TextAlign.center,
-                                    style:
-                                        Theme.of(context).textTheme.titleSmall,
+                                ],
+                              ),
+                              // Red Balloon Instructions
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                children: [
+                                  Image.asset(
+                                    'assets/images/balloon_red.png',
+                                    height: balloonHeight,
                                   ),
-                                ),
-                              ],
-                            ),
-                            // Purple Balloon Instructions
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                SizedBox(
-                                  width: game.size.x / 2,
-                                  child: Text(
-                                    '20 points\n5 taps to pop',
-                                    softWrap: true,
-                                    textAlign: TextAlign.center,
-                                    style:
-                                        Theme.of(context).textTheme.titleSmall,
+                                  SizedBox(
+                                    width: game.size.x / 2,
+                                    child: Text(
+                                      '5 points\nvery fast',
+                                      softWrap: true,
+                                      textAlign: TextAlign.center,
+                                      style:
+                                          Theme.of(context).textTheme.titleSmall,
+                                    ),
                                   ),
-                                ),
-                                Image.asset(
-                                  'assets/images/balloon_purple.png',
-                                  height: balloonHeight,
-                                ),
-                              ],
-                            ),
-                            // Evil Balloon Instructions
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                Image.asset(
-                                  'assets/images/balloon_evil.png',
-                                  height: balloonHeight,
-                                ),
-                                SizedBox(
-                                  width: game.size.x / 2,
-                                  child: Text(
-                                    '-10 points\nLose a life!',
-                                    softWrap: true,
-                                    textAlign: TextAlign.center,
-                                    style:
-                                        Theme.of(context).textTheme.titleSmall,
+                                ],
+                              ),
+                              // Purple Balloon Instructions
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                children: [
+                                  SizedBox(
+                                    width: game.size.x / 2,
+                                    child: Text(
+                                      '20 points\n5 taps to pop',
+                                      softWrap: true,
+                                      textAlign: TextAlign.center,
+                                      style:
+                                          Theme.of(context).textTheme.titleSmall,
+                                    ),
                                   ),
-                                ),
-                              ],
-                            ),
-                          ],
+                                  Image.asset(
+                                    'assets/images/balloon_purple.png',
+                                    height: balloonHeight,
+                                  ),
+                                ],
+                              ),
+                              // Evil Balloon Instructions
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                children: [
+                                  Image.asset(
+                                    'assets/images/balloon_evil.png',
+                                    height: balloonHeight,
+                                  ),
+                                  SizedBox(
+                                    width: game.size.x / 2,
+                                    child: Text(
+                                      '-10 points\nLose a life!',
+                                      softWrap: true,
+                                      textAlign: TextAlign.center,
+                                      style:
+                                          Theme.of(context).textTheme.titleSmall,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),
