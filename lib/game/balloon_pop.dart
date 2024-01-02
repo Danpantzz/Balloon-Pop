@@ -223,6 +223,10 @@ class BalloonPop extends FlameGame with HasCollisionDetection {
     settingsManager.setVFXVolume(value);
   }
 
+  void changeVibration(bool value) {
+    settingsManager.setVibration(value);
+  }
+
   //
   //  initializeGameStart()
   //  called when starting the game,

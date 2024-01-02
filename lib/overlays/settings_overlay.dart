@@ -25,9 +25,10 @@ class _SettingsOverlayState extends State<SettingsOverlay> {
   Widget build(BuildContext context) {
     BalloonPop game = widget.game as BalloonPop;
 
-    // get previous volume settings from shared_preferences
+    // get previous settings from shared_preferences
     double musicVolume = game.settingsManager.musicVolume;
     double vfxVolume = game.settingsManager.vfxVolume;
+    bool vibrate = game.settingsManager.vibration;
 
     return Material(
       color: Colors.transparent,
@@ -120,6 +121,25 @@ class _SettingsOverlayState extends State<SettingsOverlay> {
                       game.changeVFXVolume(vfxVolume);
                     },
                   ),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  // toggle title
+                  Text(
+                    'Vibration:',
+                    style: Theme.of(context).textTheme.titleSmall,
+                  ),
+                  Switch(
+                    value: vibrate,
+                    onChanged: (bool value) {
+                      game.changeVibration(value);
+                      setState(() {
+                        vibrate = value;
+                      });
+                    },
+                  )
                 ],
               ),
 

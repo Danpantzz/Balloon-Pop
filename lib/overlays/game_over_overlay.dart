@@ -71,7 +71,7 @@ class _GameOverOverlayState extends State<GameOverOverlay> {
                 onPressed: () async {
                   game.resetGame();
                 },
-                child: const Text('Play again'),
+                child: const Text('Play Again'),
               ),
               // Go Home Button (ends the game, and displays the mainMenuOverlay)
               ElevatedButton(

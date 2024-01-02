@@ -21,6 +21,8 @@ class SettingsManager extends Component with HasGameRef<BalloonPop> {
   double get vfxVolume => prefs.getDouble('vfxVolume') == null
       ? 1.0
       : prefs.getDouble('vfxVolume')!;
+  bool get vibration =>
+      prefs.getBool('vibrate') == null ? true : prefs.getBool('vibrate')!;
 
   //
   //  onLoad()
@@ -31,13 +33,15 @@ class SettingsManager extends Component with HasGameRef<BalloonPop> {
     // initialize prefs
     prefs = await SharedPreferences.getInstance();
 
-    // get volume from shared_preferences
+    // get settings from shared_preferences
     double music = musicVolume;
     double vfx = vfxVolume;
+    bool vibrate = vibration;
 
-    // set the volume to the prefs
+    // set the settings to the prefs
     setMusicVolume(music);
     setVFXVolume(vfx);
+    setVibration(vibrate);
   }
 
   //
@@ -54,6 +58,10 @@ class SettingsManager extends Component with HasGameRef<BalloonPop> {
   //
   void setVFXVolume(double value) async {
     await prefs.setDouble('vfxVolume', value);
+  }
+
+  void setVibration(bool value) async {
+    await prefs.setBool('vibrate', value);
   }
 
   //

@@ -204,5 +204,8 @@ ThemeData lightTheme(BuildContext context) {
       thumbColor: Color(0xFF0A2472),
       inactiveTrackColor: Colors.grey,
     ),
+    switchTheme: const SwitchThemeData(
+      thumbColor: MaterialStatePropertyAll(Color(0xFF0A2472)),
+    ),
   );
 }

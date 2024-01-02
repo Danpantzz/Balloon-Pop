@@ -1,7 +1,7 @@
 name: daniel_mcerlean_project_3
 description: A new Flutter project.
 publish_to: 'none'
-version: 1.0.2+3
+version: 1.0.3+4
 
 environment:
   sdk: '>=3.1.0 <4.0.0'

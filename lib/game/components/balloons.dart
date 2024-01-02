@@ -82,7 +82,9 @@ class Balloons extends SpriteComponent
     super.onTapDown(event);
 
     // vibrates phone for every tap
-    HapticFeedback.lightImpact();
+    if (gameRef.settingsManager.vibration) {
+      HapticFeedback.lightImpact();
+    }
 
     // variable specific for when balloon should be destroyed
     bool destroyed = false;
