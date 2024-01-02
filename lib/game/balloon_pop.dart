@@ -27,6 +27,8 @@ class BalloonPop extends FlameGame with HasCollisionDetection {
   GameManager gameManager = GameManager();
   SettingsManager settingsManager = SettingsManager();
 
+  // Game Modes
+
   // balloon spawn time variables
   double spawnBalloonTime = 1.5;
   double currBalloonTime = 0;
