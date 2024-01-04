@@ -60,16 +60,16 @@ class _PauseOverlayState extends State<PauseOverlay> {
                   ),
                   // Settings gear in topRight corner of container.
                   // Leads to the settingsOverlay
-                  Align(
+                  IconButton(
                     alignment: Alignment.topRight,
-                    child: IconButton(
-                      padding: const EdgeInsets.only(left: 20.0),
-                      icon: const Icon(Icons.settings,
-                          color: Color.fromARGB(255, 77, 77, 77), size: 48),
-                      onPressed: () {
-                        game.overlays.add('settingsOverlay');
-                      },
-                    ),
+                    padding: const EdgeInsets.only(left: 20.0),
+                    color: const Color.fromARGB(255, 77, 77, 77),
+                    icon: const Icon(Icons.settings),
+                    iconSize: 48,
+                    onPressed: () {
+                      game.overlays.add('settingsOverlay');
+                    },
+                    tooltip: 'Settings',
                   ),
                 ],
               ),

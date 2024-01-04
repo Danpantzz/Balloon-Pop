@@ -43,8 +43,6 @@ class BalloonPop extends FlameGame with HasCollisionDetection {
   double spawnCloudTime = 4;
   double currCloudTime = 3;
 
-  bool paused = false;
-
   //
   //  OnLoad loads all assets, music, settingsManager,
   //  and starts the background music
@@ -298,12 +296,10 @@ class BalloonPop extends FlameGame with HasCollisionDetection {
   //
   void pause() {
     if (!paused) {
-      paused = true;
       overlays.remove('gameOverlay');
       overlays.add('pauseOverlay');
       pauseEngine();
     } else {
-      paused = false;
       overlays.remove('pauseOverlay');
       overlays.add('gameOverlay');
       resumeEngine();
