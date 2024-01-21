@@ -109,7 +109,7 @@ class Balloons extends SpriteComponent
         destroyed = true;
       } else {
         // play bouncing sound when not popped
-        FlameAudio.play('bounce2.wav');
+        FlameAudio.play('bounce2.wav', volume: volume);
       }
     } else {
       // single tap balloons pop right away
