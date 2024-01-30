@@ -16,10 +16,15 @@ class GameManager extends Component with HasGameRef<BalloonPop> {
   // initializes GameState to intro
   GameState state = GameState.intro;
 
+  GameMode mode = GameMode.risingBalloons;
+
   // getters for GameState
   bool get isPlaying => state == GameState.playing;
   bool get isGameOver => state == GameState.gameOver;
   bool get isIntro => state == GameState.intro;
+
+  bool get isRisingBalloons => mode == GameMode.risingBalloons;
+  bool get isBalloonDefense => mode == GameMode.balloonDefense;
 
   //
   //  reset()
@@ -50,3 +55,5 @@ class GameManager extends Component with HasGameRef<BalloonPop> {
 
 // GameState enum
 enum GameState { intro, playing, gameOver }
+
+enum GameMode { risingBalloons, balloonDefense }
