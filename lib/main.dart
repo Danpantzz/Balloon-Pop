@@ -1,3 +1,9 @@
+import 'dart:io';
+
+import 'package:daniel_mcerlean_project_3/src/games_services/games_services.dart';
+import 'package:flutter/foundation.dart';
+import 'package:games_services/games_services.dart' as gs;
+import 'package:provider/provider.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter/material.dart';
 import 'package:flame/game.dart';
@@ -22,25 +28,42 @@ void main() {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
-  runApp(const MainApp());
+  GamesServicesController? gamesServicesController;
+  if (!kIsWeb && (Platform.isIOS || Platform.isAndroid)) {
+    gamesServicesController = GamesServicesController()
+      // Attempt to log the player in.
+      ..initialize();
+  }
+
+  runApp(MainApp(
+    gamesServicesController: gamesServicesController,
+  ));
 
   // Remove splash after initialization
   FlutterNativeSplash.remove();
 }
 
 class MainApp extends StatelessWidget {
-  const MainApp({super.key});
+  final GamesServicesController? gamesServicesController;
+
+  const MainApp({required this.gamesServicesController, super.key});
 
   //
   //  Stateless build method that removes the debug banner, sets up theme and home page
   //
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: lightTheme(context),
-      //darkTheme: darkTheme(context),
-      home: const HomePage(),
+    return MultiProvider(
+      providers: [
+        Provider<GamesServicesController?>.value(
+            value: gamesServicesController),
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: lightTheme(context),
+        //darkTheme: darkTheme(context),
+        home: const HomePage(),
+      ),
     );
   }
 }
@@ -61,9 +84,11 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
   void didChangeAppLifecycleState(AppLifecycleState state) {
     super.didChangeAppLifecycleState(state);
 
+    print('State: $state');
+
     switch (state) {
       case AppLifecycleState.resumed:
-        if (!game.paused) game.resumeEngine();
+        game.resumeEngine();
         break;
       case AppLifecycleState.hidden:
       case AppLifecycleState.inactive:
@@ -80,7 +105,6 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
   @override
   void initState() {
     super.initState();
-
     WidgetsBinding.instance.addObserver(this);
   }
 

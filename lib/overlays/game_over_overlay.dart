@@ -1,7 +1,10 @@
 import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
+import 'package:games_services/games_services.dart';
+import 'package:provider/provider.dart';
 
 import '../game/balloon_pop.dart';
+import '../src/games_services/games_services.dart';
 
 ///
 /// GameOver Screen appears when the player runs out of lives
@@ -23,6 +26,9 @@ class _GameOverOverlayState extends State<GameOverOverlay> {
   @override
   Widget build(BuildContext context) {
     BalloonPop game = widget.game as BalloonPop;
+    final gamesServicesController = context.watch<GamesServicesController?>();
+
+    gamesServicesController!.submitLeaderboardScore(game.gameManager.score.value);
 
     return Material(
       color: Colors.transparent,
@@ -67,6 +73,12 @@ class _GameOverOverlayState extends State<GameOverOverlay> {
                 },
               ),
               // Play Again Button (resets game, and removes this overlay)
+              ElevatedButton(
+                onPressed: () async {
+                  gamesServicesController.showLeaderboard();
+                },
+                child: const Text('Leaderboard'),
+              ),
               ElevatedButton(
                 onPressed: () async {
                   game.resetGame();

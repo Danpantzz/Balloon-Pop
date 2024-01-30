@@ -1,7 +1,7 @@
 name: daniel_mcerlean_project_3
 description: A new Flutter project.
 publish_to: 'none'
-version: 1.0.5+6
+version: 1.1.1+8
 
 environment:
   sdk: '>=3.1.0 <4.0.0'
@@ -13,8 +13,10 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_native_splash: ^2.3.7
+  games_services: ^4.0.0
   gap: ^3.0.1
   google_fonts: ^6.1.0
+  provider: ^6.1.1
   shared_preferences: ^2.2.2
   webview_flutter: ^4.4.2
   
