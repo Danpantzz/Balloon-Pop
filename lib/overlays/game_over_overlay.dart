@@ -75,7 +75,7 @@ class _GameOverOverlayState extends State<GameOverOverlay> {
               // Play Again Button (resets game, and removes this overlay)
               ElevatedButton(
                 onPressed: () async {
-                  gamesServicesController.showLeaderboard();
+                  gamesServicesController.showLeaderboard("CgkIxqXw6oIREAIQAQ");
                 },
                 child: const Text('Leaderboard'),
               ),

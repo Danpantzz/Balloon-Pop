@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:daniel_mcerlean_project_3/overlays/game_modes_overlay.dart';
 import 'package:daniel_mcerlean_project_3/src/games_services/games_services.dart';
 import 'package:flutter/foundation.dart';
 import 'package:games_services/games_services.dart' as gs;
@@ -88,7 +89,7 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
 
     switch (state) {
       case AppLifecycleState.resumed:
-        game.resumeEngine();
+        if (!game.overlays.isActive('pauseOverlay')) game.resumeEngine();
         break;
       case AppLifecycleState.hidden:
       case AppLifecycleState.inactive:
@@ -126,11 +127,14 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
                 game: game,
                 overlayBuilderMap: <String,
                     Widget Function(BuildContext, Game)>{
-                  // UI menu
-                  'gameOverlay': (context, game) => GameOverlay(game),
-
                   // Main Menu
                   'mainMenuOverlay': (context, game) => MainMenuOverlay(game),
+
+                  // Game Modes
+                  'gameModesOverlay': (context, game) => GameModesOverlay(game),
+
+                  // UI menu
+                  'gameOverlay': (context, game) => GameOverlay(game),
 
                   // Settings
                   'settingsOverlay': (context, game) => SettingsOverlay(game),

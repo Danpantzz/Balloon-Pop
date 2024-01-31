@@ -33,6 +33,11 @@ class _MainMenuOverlayState extends State<MainMenuOverlay> {
     return WillPopScope(
       onWillPop: () {
         // confirmation screen added to exit app when back button is pressed
+        if (game.overlays.activeOverlays.length > 1) {
+          game.overlays.remove(game.overlays.activeOverlays.last);
+          return Future.value(false);
+        }
+
         game.overlays.add('exitOverlay');
         return Future.value(false);
       },
@@ -55,17 +60,18 @@ class _MainMenuOverlayState extends State<MainMenuOverlay> {
               // Start Game Button
               ElevatedButton(
                 onPressed: () async {
-                  game.startGame();
+                  //game.startGame();
+                  game.overlays.add('gameModesOverlay');
                 },
-                child: const Text('Start Game'),
+                child: const Text('Game Modes'),
               ),
               // Leaderboard
-              ElevatedButton(
-                onPressed: () async {
-                  gamesServicesController!.showLeaderboard();
-                },
-                child: const Text('Leaderboard'),
-              ),
+              // ElevatedButton(
+              //   onPressed: () async {
+              //     gamesServicesController!.showLeaderboard();
+              //   },
+              //   child: const Text('Leaderboard'),
+              // ),
               // Settings Button
               ElevatedButton(
                 onPressed: () {
@@ -74,12 +80,12 @@ class _MainMenuOverlayState extends State<MainMenuOverlay> {
                 child: const Text('Settings'),
               ),
 
-              // InstructionsButton
+              // Quit Button
               ElevatedButton(
                 onPressed: () {
-                  game.overlays.add('instructionsOverlay');
+                  game.overlays.add('exitOverlay');
                 },
-                child: const Text('Instructions'),
+                child: const Text('Quit Game'),
               ),
               const Gap(35),
             ],

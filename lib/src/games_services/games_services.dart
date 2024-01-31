@@ -36,7 +36,7 @@ class GamesServicesController {
   }
 
   /// Launches the platform's UI overlay with leaderboard(s).
-  Future<void> showLeaderboard() async {
+  Future<void> showLeaderboard(leaderboard) async {
     if (!await signedIn) {
       showErrorSnackbar(
         'sign in to view leaderboard',
@@ -51,7 +51,7 @@ class GamesServicesController {
 
     try {
       await gs.GamesServices.showLeaderboards(
-        androidLeaderboardID: "CgkIxqXw6oIREAIQAQ",
+        androidLeaderboardID: leaderboard,
       );
     } catch (e) {
       print('Cannot show leaderboard: $e');

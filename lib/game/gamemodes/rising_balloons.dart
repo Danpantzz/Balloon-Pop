@@ -89,13 +89,13 @@ class RisingBalloons extends Component with HasGameRef<BalloonPop> {
   }
 
   
-  //
-  //  removeAllBalloons()
-  //  utility function for removing all instances of Balloons
-  //
-  void removeAllBalloons() {
-    game.removeAll(children.query<Balloons>());
-  }
+  // //
+  // //  removeAllBalloons()
+  // //  utility function for removing all instances of Balloons
+  // //
+  // void removeAllBalloons() {
+  //   game.removeAll(children.query<Balloons>());
+  // }
 
     //
   //  initializeGameStart()
