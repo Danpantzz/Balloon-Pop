@@ -1,19 +1,13 @@
 import 'dart:async';
-import 'dart:math';
 import 'dart:ui';
 
-import 'package:daniel_mcerlean_project_3/game/components/balloons.dart';
-import 'package:daniel_mcerlean_project_3/game/gamemodes/rising_balloons.dart';
+import 'components/balloons.dart';
+import 'gamemodes/rising_balloons.dart';
 import 'package:flame/game.dart';
 import 'package:flame_audio/flame_audio.dart';
 
 import 'managers/game_manager.dart';
 import 'managers/settings_manager.dart';
-import 'components/balloon_green.dart';
-import 'components/balloon_yellow.dart';
-import 'components/balloon_red.dart';
-import 'components/balloon_purple.dart';
-import 'components/balloon_evil.dart';
 import 'components/cloud.dart';
 
 // utilizes help from this tutorial:

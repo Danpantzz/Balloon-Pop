@@ -1,9 +1,7 @@
-import 'dart:async';
 import 'dart:math';
-import 'dart:ui';
 
 import 'package:daniel_mcerlean_project_3/game/balloon_pop.dart';
-import 'package:daniel_mcerlean_project_3/game/components/balloons.dart';
+// import 'package:daniel_mcerlean_project_3/game/components/balloons.dart';
 import 'package:flame/components.dart';
 
 import '../managers/game_manager.dart';

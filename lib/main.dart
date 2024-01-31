@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:daniel_mcerlean_project_3/overlays/game_modes_overlay.dart';
 import 'package:daniel_mcerlean_project_3/src/games_services/games_services.dart';
 import 'package:flutter/foundation.dart';
-import 'package:games_services/games_services.dart' as gs;
+//import 'package:games_services/games_services.dart' as gs;
 import 'package:provider/provider.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter/material.dart';
@@ -11,7 +11,7 @@ import 'package:flame/game.dart';
 
 import 'game/balloon_pop.dart';
 import 'light_theme.dart';
-import 'dark_theme.dart';
+//import 'dark_theme.dart';
 import 'overlays/exit_overlay.dart';
 import 'overlays/game_over_overlay.dart';
 import 'overlays/game_overlay.dart';
