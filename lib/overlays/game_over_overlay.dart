@@ -30,69 +30,75 @@ class _GameOverOverlayState extends State<GameOverOverlay> {
 
     gamesServicesController!.submitLeaderboardScore(game.gameManager.score.value);
 
-    return Material(
-      color: Colors.transparent,
-      child: Center(
-        child: Container(
-          alignment: Alignment.bottomCenter,
-          width: game.size.x / 1.3,
-          height: game.size.y / 1.3,
-          padding: const EdgeInsets.all(5.0),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            border: Border.all(color: Colors.black),
-            borderRadius: const BorderRadius.all(Radius.circular(15)),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withOpacity(0.5),
-                spreadRadius: 3,
-                blurRadius: 5,
-              ),
-            ],
-          ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              // Game Over Text
-              Text(
-                'Game Over!',
-                style: Theme.of(context).textTheme.titleMedium,
-                textAlign: TextAlign.center,
-              ),
-              // Display the users score.
-              // ValueListenableBuilder allows this to change as score changes,
-              // though the score won't change while the game is paused
-              ValueListenableBuilder(
-                valueListenable: game.gameManager.score,
-                builder: (context, value, child) {
-                  return Text(
-                    'Your score is:\n$value',
-                    style: Theme.of(context).textTheme.titleSmall,
-                    textAlign: TextAlign.center,
-                  );
-                },
-              ),
-              // Play Again Button (resets game, and removes this overlay)
-              ElevatedButton(
-                onPressed: () async {
-                  gamesServicesController.showLeaderboard("CgkIxqXw6oIREAIQAQ");
-                },
-                child: const Text('Leaderboard'),
-              ),
-              ElevatedButton(
-                onPressed: () async {
-                  game.resetGame();
-                },
-                child: const Text('Play Again'),
-              ),
-              // Go Home Button (ends the game, and displays the mainMenuOverlay)
-              ElevatedButton(
-                onPressed: () async {
-                  game.endGame();
-                },
-                child: const Text('Go Home'),
-              ),
-            ],
+    return WillPopScope(
+      onWillPop: () {
+        game.endGame();
+        return Future.value(false);
+      },
+      child: Material(
+        color: Colors.transparent,
+        child: Center(
+          child: Container(
+            alignment: Alignment.bottomCenter,
+            width: game.size.x / 1.3,
+            height: game.size.y / 1.3,
+            padding: const EdgeInsets.all(5.0),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              border: Border.all(color: Colors.black),
+              borderRadius: const BorderRadius.all(Radius.circular(15)),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.5),
+                  spreadRadius: 3,
+                  blurRadius: 5,
+                ),
+              ],
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                // Game Over Text
+                Text(
+                  'Game Over!',
+                  style: Theme.of(context).textTheme.titleMedium,
+                  textAlign: TextAlign.center,
+                ),
+                // Display the users score.
+                // ValueListenableBuilder allows this to change as score changes,
+                // though the score won't change while the game is paused
+                ValueListenableBuilder(
+                  valueListenable: game.gameManager.score,
+                  builder: (context, value, child) {
+                    return Text(
+                      'Your score is:\n$value',
+                      style: Theme.of(context).textTheme.titleSmall,
+                      textAlign: TextAlign.center,
+                    );
+                  },
+                ),
+                // Play Again Button (resets game, and removes this overlay)
+                ElevatedButton(
+                  onPressed: () async {
+                    gamesServicesController.showLeaderboard("CgkIxqXw6oIREAIQAQ");
+                  },
+                  child: const Text('Leaderboard'),
+                ),
+                ElevatedButton(
+                  onPressed: () async {
+                    game.resetGame();
+                  },
+                  child: const Text('Play Again'),
+                ),
+                // Go Home Button (ends the game, and displays the mainMenuOverlay)
+                ElevatedButton(
+                  onPressed: () async {
+                    game.endGame();
+                  },
+                  child: const Text('Go Home'),
+                ),
+              ],
+            ),
           ),
         ),
       ),

@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:daniel_mcerlean_project_3/game/balloon_pop.dart';
+import 'package:daniel_mcerlean_project_3/game/components/game_over_text.dart';
 // import 'package:daniel_mcerlean_project_3/game/components/balloons.dart';
 import 'package:flame/components.dart';
 
@@ -152,7 +153,8 @@ class RisingBalloons extends Component with HasGameRef<BalloonPop> {
   //
   void onLose() {
     game.gameManager.state = GameState.gameOver;
-    game.overlays.remove('gameOverlay');
-    game.overlays.add('gameOverOverlay');
+    game.add(GameOverText());
+    //game.overlays.remove('gameOverlay');
+    //game.overlays.add('gameOverOverlay');
   }
 }

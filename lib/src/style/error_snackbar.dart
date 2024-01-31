@@ -31,7 +31,7 @@ void showErrorSnackbar(String errorMessage, {SnackBarAction? action}) {
         margin: const EdgeInsets.only(bottom: 30, left: 24, right: 24),
         behavior: SnackBarBehavior.floating,
         duration: duration,
-        backgroundColor: Color(0xffffffd1),
+        backgroundColor: const Color(0xffffffd1),
         dismissDirection: DismissDirection.horizontal,
         action: action,
       ),

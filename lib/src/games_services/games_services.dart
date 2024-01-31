@@ -30,7 +30,7 @@ class GamesServicesController {
       //   gs.GameAuth.signIn();
       // }
     } catch (e) {
-      print('Cannot log into GamesServices: $e');
+      //print('Cannot log into GamesServices: $e');
       _signedInCompleter.complete(false);
     }
   }
@@ -45,7 +45,7 @@ class GamesServicesController {
           onPressed: initialize,
         ),
       );
-      print('Trying to show leaderboard when not logged in.');
+      //print('Trying to show leaderboard when not logged in.');
       return;
     }
 
@@ -54,18 +54,18 @@ class GamesServicesController {
         androidLeaderboardID: leaderboard,
       );
     } catch (e) {
-      print('Cannot show leaderboard: $e');
+      //print('Cannot show leaderboard: $e');
     }
   }
 
   /// Submits [score] to the leaderboard.
   Future<void> submitLeaderboardScore(score) async {
     if (!await signedIn) {
-      print('Trying to submit leaderboard when not logged in.');
+      //print('Trying to submit leaderboard when not logged in.');
       return;
     }
 
-    print('Submitting $score to leaderboard.');
+    //print('Submitting $score to leaderboard.');
 
     try {
       await gs.GamesServices.submitScore(
@@ -75,7 +75,7 @@ class GamesServicesController {
         ),
       );
     } catch (e) {
-      print('Cannot submit leaderboard score: $e');
+      //print('Cannot submit leaderboard score: $e');
     }
   }
 }

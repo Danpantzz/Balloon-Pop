@@ -81,6 +81,10 @@ class Balloons extends SpriteComponent
   void onTapDown(TapDownEvent event) {
     super.onTapDown(event);
 
+    if (game.gameManager.isGameOver) {
+      return;
+    }
+
     // vibrates phone for every tap
     if (gameRef.settingsManager.vibration) {
       HapticFeedback.lightImpact();

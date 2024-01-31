@@ -85,7 +85,7 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
   void didChangeAppLifecycleState(AppLifecycleState state) {
     super.didChangeAppLifecycleState(state);
 
-    print('State: $state');
+    //print('State: $state');
 
     switch (state) {
       case AppLifecycleState.resumed:

@@ -70,7 +70,7 @@ class _GameModesOverlayState extends State<GameModesOverlay> {
           alignment: Alignment.bottomCenter,
           width: game.size.x / 1.1,
           height: game.size.y / 1.1,
-          margin: EdgeInsets.only(top: 20),
+          margin: const EdgeInsets.only(top: 20),
           padding: const EdgeInsets.all(8.0),
           decoration: BoxDecoration(
             color: Colors.white,
