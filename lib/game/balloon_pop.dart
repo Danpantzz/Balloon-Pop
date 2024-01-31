@@ -1,6 +1,8 @@
 import 'dart:async';
 import 'dart:ui';
 
+import 'package:daniel_mcerlean_project_3/game/components/background.dart';
+
 import 'components/balloons.dart';
 import 'gamemodes/rising_balloons.dart';
 import 'package:flame/game.dart';
@@ -24,6 +26,8 @@ class BalloonPop extends FlameGame with HasCollisionDetection {
 
   // Game Modes
   RisingBalloons risingBalloons = RisingBalloons();
+
+  late BackgroundComponent backgroundComponent;
 
   // balloon spawn time variables
   double spawnBalloonTime = 1.5;
@@ -68,6 +72,9 @@ class BalloonPop extends FlameGame with HasCollisionDetection {
       ],
     );
 
+    backgroundComponent = BackgroundComponent()..size = size;
+    add(backgroundComponent);
+
     add(risingBalloons);
 
     // called so that shared_preferences is initialized before trying to access it
@@ -106,10 +113,10 @@ class BalloonPop extends FlameGame with HasCollisionDetection {
   //  backgroundColor()
   //  changes the background color of the app to the 'sky blue'-like color
   //
-  @override
-  Color backgroundColor() {
-    return const Color.fromARGB(255, 104, 174, 255);
-  }
+  // @override
+  // Color backgroundColor() {
+  //   return const Color.fromARGB(255, 104, 174, 255);
+  // }
 
   //
   //  update()

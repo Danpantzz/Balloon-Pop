@@ -1,9 +1,10 @@
+import 'constants.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
 
 ThemeData lightTheme(BuildContext context) {
   return ThemeData(
-    primaryColor: const Color.fromARGB(255, 104, 174, 255),
+    primaryColor: lightColor,
 
     // text themes
     textTheme: TextTheme(
@@ -12,24 +13,7 @@ ThemeData lightTheme(BuildContext context) {
           fontSize: MediaQuery.of(context).size.width / 6,
           color: Colors.white,
           // https://stackoverflow.com/questions/52146269/how-to-decorate-text-stroke-in-flutter
-          shadows: const [
-            Shadow(
-                // bottomLeft
-                offset: Offset(-1.5, -1.5),
-                color: Colors.black),
-            Shadow(
-                // bottomRight
-                offset: Offset(1.5, -1.5),
-                color: Colors.black),
-            Shadow(
-                // topRight
-                offset: Offset(1.5, 1.5),
-                color: Colors.black),
-            Shadow(
-                // topLeft
-                offset: Offset(-1.5, 1.5),
-                color: Colors.black),
-          ],
+          shadows: shadows,
         ),
       ),
       titleMedium: GoogleFonts.rubikBubbles(
@@ -37,24 +21,7 @@ ThemeData lightTheme(BuildContext context) {
           fontSize: MediaQuery.of(context).size.width / 8,
           color: Colors.grey,
           // https://stackoverflow.com/questions/52146269/how-to-decorate-text-stroke-in-flutter
-          shadows: const [
-            Shadow(
-                // bottomLeft
-                offset: Offset(-1.5, -1.5),
-                color: Colors.black),
-            Shadow(
-                // bottomRight
-                offset: Offset(1.5, -1.5),
-                color: Colors.black),
-            Shadow(
-                // topRight
-                offset: Offset(1.5, 1.5),
-                color: Colors.black),
-            Shadow(
-                // topLeft
-                offset: Offset(-1.5, 1.5),
-                color: Colors.black),
-          ],
+          shadows: shadows,
         ),
       ),
       titleSmall: GoogleFonts.rubikBubbles(
@@ -62,24 +29,7 @@ ThemeData lightTheme(BuildContext context) {
           fontSize: MediaQuery.of(context).size.width / 15,
           color: Colors.grey,
           // https://stackoverflow.com/questions/52146269/how-to-decorate-text-stroke-in-flutter
-          shadows: const [
-            Shadow(
-                // bottomLeft
-                offset: Offset(-1.5, -1.5),
-                color: Colors.black),
-            Shadow(
-                // bottomRight
-                offset: Offset(1.5, -1.5),
-                color: Colors.black),
-            Shadow(
-                // topRight
-                offset: Offset(1.5, 1.5),
-                color: Colors.black),
-            Shadow(
-                // topLeft
-                offset: Offset(-1.5, 1.5),
-                color: Colors.black),
-          ],
+          shadows: shadows,
         ),
       ),
       displayLarge: GoogleFonts.rubikBubbles(
@@ -87,24 +37,7 @@ ThemeData lightTheme(BuildContext context) {
           fontSize: MediaQuery.of(context).size.width / 12,
           color: Colors.white,
           // https://stackoverflow.com/questions/52146269/how-to-decorate-text-stroke-in-flutter
-          shadows: const [
-            Shadow(
-                // bottomLeft
-                offset: Offset(-1.5, -1.5),
-                color: Colors.black),
-            Shadow(
-                // bottomRight
-                offset: Offset(1.5, -1.5),
-                color: Colors.black),
-            Shadow(
-                // topRight
-                offset: Offset(1.5, 1.5),
-                color: Colors.black),
-            Shadow(
-                // topLeft
-                offset: Offset(-1.5, 1.5),
-                color: Colors.black),
-          ],
+          shadows: shadows,
         ),
       ),
       displayMedium: GoogleFonts.rubikBubbles(
@@ -112,24 +45,7 @@ ThemeData lightTheme(BuildContext context) {
           fontSize: MediaQuery.of(context).size.width / 18,
           color: Colors.white,
           // https://stackoverflow.com/questions/52146269/how-to-decorate-text-stroke-in-flutter
-          shadows: const [
-            Shadow(
-                // bottomLeft
-                offset: Offset(-1.5, -1.5),
-                color: Colors.black),
-            Shadow(
-                // bottomRight
-                offset: Offset(1.5, -1.5),
-                color: Colors.black),
-            Shadow(
-                // topRight
-                offset: Offset(1.5, 1.5),
-                color: Colors.black),
-            Shadow(
-                // topLeft
-                offset: Offset(-1.5, 1.5),
-                color: Colors.black),
-          ],
+          shadows: shadows,
         ),
       ),
       displaySmall: GoogleFonts.rubikBubbles(
@@ -137,24 +53,7 @@ ThemeData lightTheme(BuildContext context) {
           fontSize: MediaQuery.of(context).size.width / 25,
           color: Colors.white,
           // https://stackoverflow.com/questions/52146269/how-to-decorate-text-stroke-in-flutter
-          shadows: const [
-            Shadow(
-                // bottomLeft
-                offset: Offset(-1.5, -1.5),
-                color: Colors.black),
-            Shadow(
-                // bottomRight
-                offset: Offset(1.5, -1.5),
-                color: Colors.black),
-            Shadow(
-                // topRight
-                offset: Offset(1.5, 1.5),
-                color: Colors.black),
-            Shadow(
-                // topLeft
-                offset: Offset(-1.5, 1.5),
-                color: Colors.black),
-          ],
+          shadows: shadows,
         ),
       ),
     ),
@@ -166,24 +65,7 @@ ThemeData lightTheme(BuildContext context) {
           GoogleFonts.rubikBubbles(
             textStyle: TextStyle(
               fontSize: MediaQuery.of(context).size.width / 12,
-              shadows: const [
-                Shadow(
-                    // bottomLeft
-                    offset: Offset(-1.5, -1.5),
-                    color: Colors.black),
-                Shadow(
-                    // bottomRight
-                    offset: Offset(1.5, -1.5),
-                    color: Colors.black),
-                Shadow(
-                    // topRight
-                    offset: Offset(1.5, 1.5),
-                    color: Colors.black),
-                Shadow(
-                    // topLeft
-                    offset: Offset(-1.5, 1.5),
-                    color: Colors.black),
-              ],
+              shadows: shadows,
             ),
           ),
         ),
@@ -194,18 +76,18 @@ ThemeData lightTheme(BuildContext context) {
           ),
         ),
         padding: const MaterialStatePropertyAll(EdgeInsets.all(8.0)),
-        backgroundColor: const MaterialStatePropertyAll(Color(0xFF0A2472)),
+        backgroundColor: MaterialStatePropertyAll(lightButtonColor),
       ),
     ),
 
     // slider theme
-    sliderTheme: const SliderThemeData(
-      activeTrackColor: Color(0xFF0A2472),
-      thumbColor: Color(0xFF0A2472),
+    sliderTheme: SliderThemeData(
+      activeTrackColor: lightButtonColor,
+      thumbColor: lightButtonColor,
       inactiveTrackColor: Colors.grey,
     ),
-    switchTheme: const SwitchThemeData(
-      thumbColor: MaterialStatePropertyAll(Color(0xFF0A2472)),
+    switchTheme: SwitchThemeData(
+      thumbColor: MaterialStatePropertyAll(lightButtonColor),
     ),
   );
 }

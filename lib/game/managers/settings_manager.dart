@@ -23,6 +23,8 @@ class SettingsManager extends Component with HasGameRef<BalloonPop> {
       : prefs.getDouble('vfxVolume')!;
   bool get vibration =>
       prefs.getBool('vibrate') == null ? true : prefs.getBool('vibrate')!;
+  bool get darkMode =>
+      prefs.getBool('darkMode') == null ? true : prefs.getBool('darkMode')!;
 
   //
   //  onLoad()
@@ -37,11 +39,13 @@ class SettingsManager extends Component with HasGameRef<BalloonPop> {
     double music = musicVolume;
     double vfx = vfxVolume;
     bool vibrate = vibration;
+    bool dark = darkMode;
 
     // set the settings to the prefs
     setMusicVolume(music);
     setVFXVolume(vfx);
     setVibration(vibrate);
+    setDarkMode(dark);
   }
 
   //
@@ -62,6 +66,10 @@ class SettingsManager extends Component with HasGameRef<BalloonPop> {
 
   void setVibration(bool value) async {
     await prefs.setBool('vibrate', value);
+  }
+
+  void setDarkMode(bool value) async {
+    await prefs.setBool('darkMode', value);
   }
 
   //

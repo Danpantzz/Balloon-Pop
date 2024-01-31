@@ -11,7 +11,7 @@ import 'package:flame/game.dart';
 
 import 'game/balloon_pop.dart';
 import 'light_theme.dart';
-//import 'dark_theme.dart';
+import 'dark_theme.dart';
 import 'overlays/exit_overlay.dart';
 import 'overlays/game_over_overlay.dart';
 import 'overlays/game_overlay.dart';

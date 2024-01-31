@@ -35,6 +35,7 @@ class _MainMenuOverlayState extends State<MainMenuOverlay> {
         // confirmation screen added to exit app when back button is pressed
         if (game.overlays.activeOverlays.length > 1) {
           game.overlays.remove(game.overlays.activeOverlays.last);
+          game.resumeBgmMusic();
           return Future.value(false);
         }
 
