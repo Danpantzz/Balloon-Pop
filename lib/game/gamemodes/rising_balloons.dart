@@ -13,7 +13,6 @@ import '../components/balloon_purple.dart';
 import '../components/balloon_evil.dart';
 
 class RisingBalloons extends Component with HasGameRef<BalloonPop> {
-
   // balloon spawn time variables
   double spawnBalloonTime = 1.5;
   double currBalloonTime = 0;
@@ -28,28 +27,30 @@ class RisingBalloons extends Component with HasGameRef<BalloonPop> {
   void update(double dt) {
     super.update(dt);
 
-    // if game has started
-    if (game.gameManager.isPlaying && game.gameManager.isRisingBalloons) {
-      // spawn balloons based on elapsed deltaTime
-      currBalloonTime += dt;
-      if (currBalloonTime >= spawnBalloonTime) {
-        currBalloonTime = 0;
+    // if game has not started, return
+    // (should seperate logic so that this isn't always called, if it is a performance issue)
+    if (!game.gameManager.isPlaying || !game.gameManager.isRisingBalloons) {
+      return;
+    }
+    // spawn balloons based on elapsed deltaTime
+    currBalloonTime += dt;
+    if (currBalloonTime >= spawnBalloonTime) {
+      currBalloonTime = 0;
 
-        spawnBalloons();
-      }
+      spawnBalloons();
+    }
 
-      // lower spawnBalloonTime every lowerSpawnTime seconds
-      // AND only lower if spawnBalloonTime is greater than minSpawnTime
-      currTime += dt;
-      if (currTime >= lowerSpawnTime && spawnBalloonTime > minSpawnTime) {
-        currTime = 0;
-        spawnBalloonTime -= lowerSpawnTimeBy;
-      }
+    // lower spawnBalloonTime every lowerSpawnTime seconds
+    // AND only lower if spawnBalloonTime is greater than minSpawnTime
+    currTime += dt;
+    if (currTime >= lowerSpawnTime && spawnBalloonTime > minSpawnTime) {
+      currTime = 0;
+      spawnBalloonTime -= lowerSpawnTimeBy;
+    }
 
-      // if player runs out of lives
-      if (game.gameManager.life.value <= 0) {
-        onLose();
-      }
+    // if player runs out of lives
+    if (game.gameManager.life.value <= 0) {
+      onLose();
     }
   }
 
@@ -87,7 +88,6 @@ class RisingBalloons extends Component with HasGameRef<BalloonPop> {
     }
   }
 
-  
   // //
   // //  removeAllBalloons()
   // //  utility function for removing all instances of Balloons
@@ -96,7 +96,7 @@ class RisingBalloons extends Component with HasGameRef<BalloonPop> {
   //   game.removeAll(children.query<Balloons>());
   // }
 
-    //
+  //
   //  initializeGameStart()
   //  called when starting the game,
   //  resets gameState to isPlaying, resets spawn times,
@@ -110,7 +110,7 @@ class RisingBalloons extends Component with HasGameRef<BalloonPop> {
     game.overlays.add('gameOverlay');
   }
 
-    //
+  //
   //  startGame()
   //  used to easily start the game from the mainMenuOverlay
   //
@@ -121,7 +121,7 @@ class RisingBalloons extends Component with HasGameRef<BalloonPop> {
     game.resumeEngine();
   }
 
-    //
+  //
   //  resetGame()
   //  used to restart the game from gameOverOverlay or pauseOverlay
   //
@@ -132,7 +132,7 @@ class RisingBalloons extends Component with HasGameRef<BalloonPop> {
     game.overlays.remove('pauseOverlay');
   }
 
-    //
+  //
   //  endGame()
   //  used to end the game and display the mainMenuOverlay
   //
@@ -146,7 +146,7 @@ class RisingBalloons extends Component with HasGameRef<BalloonPop> {
     game.resumeEngine();
   }
 
-    //
+  //
   //  onLose()
   //  called when the player runs out of lives,
   //  sets state to gameOver and displays the gameOverOverlay

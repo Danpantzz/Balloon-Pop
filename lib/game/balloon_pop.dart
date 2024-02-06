@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:ui';
 
 import 'package:daniel_mcerlean_project_3/game/components/background.dart';
+import 'package:daniel_mcerlean_project_3/game/gamemodes/balloon_defense.dart';
 
 import 'components/balloons.dart';
 import 'gamemodes/rising_balloons.dart';
@@ -26,6 +27,7 @@ class BalloonPop extends FlameGame with HasCollisionDetection {
 
   // Game Modes
   RisingBalloons risingBalloons = RisingBalloons();
+  BalloonDefense balloonDefense = BalloonDefense();
 
   late BackgroundComponent backgroundComponent;
 
@@ -76,6 +78,7 @@ class BalloonPop extends FlameGame with HasCollisionDetection {
     add(backgroundComponent);
 
     add(risingBalloons);
+    add(balloonDefense);
 
     // called so that shared_preferences is initialized before trying to access it
     await settingsManager.onLoad();
@@ -267,6 +270,7 @@ class BalloonPop extends FlameGame with HasCollisionDetection {
         break;
 
       case GameMode.balloonDefense:
+        balloonDefense.startGame();
         break;
     }
   }
@@ -310,6 +314,7 @@ class BalloonPop extends FlameGame with HasCollisionDetection {
         break;
 
       case GameMode.balloonDefense:
+      balloonDefense.endGame();
         break;
     }
   }
