@@ -96,6 +96,12 @@ class BalloonPop extends FlameGame with HasCollisionDetection {
     FlameAudio.bgm.play('background.wav', volume: settingsManager.musicVolume);
   }
 
+  @override
+  void onRemove() {
+    super.onRemove();
+    FlameAudio.bgm.dispose();
+  }
+
   //
   //  pauseBgmMusic()
   //  utility function for pausing the music from different overlays
@@ -172,40 +178,6 @@ class BalloonPop extends FlameGame with HasCollisionDetection {
     //   }
     // }
   }
-
-  // //
-  // //  SpawnBalloons()
-  // //  Picks a random int from 0 to 99, spawns a balloon based on that number
-  // //
-  // void spawnBalloons() {
-  //   int random = Random().nextInt(100);
-
-  //   // 2 percent chance
-  //   if (random < 2) {
-  //     BalloonPurple balloon = BalloonPurple();
-  //     add(balloon);
-  //   }
-  //   // 10 percent chance
-  //   else if (random >= 2 && random < 12) {
-  //     BalloonEvil balloon = BalloonEvil();
-  //     add(balloon);
-  //   }
-  //   // 15 percent chance
-  //   else if (random >= 12 && random < 27) {
-  //     BalloonRed balloon = BalloonRed();
-  //     add(balloon);
-  //   }
-  //   // 30 percent chance
-  //   else if (random >= 27 && random < 57) {
-  //     BalloonYellow balloon = BalloonYellow();
-  //     add(balloon);
-  //   }
-  //   // 43 percent chance
-  //   else {
-  //     BalloonGreen balloon = BalloonGreen();
-  //     add(balloon);
-  //   }
-  // }
 
   //
   //  removeAllBalloons()

@@ -1,9 +1,30 @@
+import 'dart:async';
+
 import 'package:daniel_mcerlean_project_3/game/balloon_pop.dart';
 import 'package:flame/components.dart';
 
 import '../managers/game_manager.dart';
 
 class BalloonDefense extends Component with HasGameRef<BalloonPop> {
+
+  @override
+  FutureOr<void> onLoad() {
+    // TODO: implement onLoad
+    return super.onLoad();
+  }
+
+  @override
+  void update(double dt) {
+    // TODO: implement update
+    super.update(dt);
+
+    if (!game.gameManager.isPlaying || !game.gameManager.isBalloonDefense) {
+      return;
+    }
+
+    
+  }
+
   //
   //  initializeGameStart()
   //  called when starting the game,
